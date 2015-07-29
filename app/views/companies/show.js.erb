@@ -1,0 +1,10 @@
+<% if current_user.favorites.find_by(name: @company.name) %>
+  <% fav_id = current_user.favorites.find_by(name: @company.name).id %> // Если нашло компанию в избранном, получаем ее id и удаляем
+  <% current_user.favorites.delete(fav_id) %>
+  $("<%= escape_javascript("#icon#{@company.id}") %>").removeClass()
+  $("<%= escape_javascript("#icon#{@company.id}") %>").addClass('glyphicon glyphicon-star-empty')
+<% else %>
+  <% current_user.favorites.create(name: @company.name) %>
+  $("<%= escape_javascript("#icon#{@company.id}") %>").removeClass()
+  $("<%= escape_javascript("#icon#{@company.id}") %>").addClass('glyphicon glyphicon-star')
+<% end %>

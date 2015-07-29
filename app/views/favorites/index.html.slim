@@ -1,0 +1,9 @@
+h1 Listing favorites
+table.table
+  thead
+    tr
+      th Избранное
+  tbody
+    - @favorites.each do |favorite|
+      tr
+        td = favorite.name
