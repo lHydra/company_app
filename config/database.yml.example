@@ -3,28 +3,25 @@ defaults: &defaults
   timeout: 5000
   encoding: unicode
   adapter: postgresql
+  host: localhost
 
 development:
   adapter: postgresql
   encoding: utf8
-  database: company_development
+  database: company_app_development
   pool: 5
-  username: pguser
-  password: pguser
-  host: localhost
+  username: postgres
 
 test:
   adapter: postgresql
   encoding: utf8
-  database: company_test
+  database: company_app_test
   pool: 5
-  username: pguser
-  password: pguser
-  host: localhost
+  username: postgres
 
 production:
   adapter: postgresql
   encoding: utf8
-  database: company_production
+  database: company_app_production
   pool: 5
   username: postgres
