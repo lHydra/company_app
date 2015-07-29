@@ -1,35 +1,34 @@
 doctype html
-html
-  head
-    title Sevdol
-    = stylesheet_link_tag    'application', media: 'all'
-    = csrf_meta_tags
-  body
-    .container
-      /! Static navbar
-      nav.navbar.navbar-default
-        .navbar-header
-          button.navbar-toggle 'data-target' => '.navbar-collapse', 'data-toggle' => 'collapse', type: 'button'
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          = link_to "My Website", root_path, class: 'navbar-brand'
-        .navbar-collapse.collapse
-          ul.nav.navbar-nav.navbar-right
-            - if user_signed_in?
-              li
-                = link_to "Выйти, #{current_user.email}", destroy_user_session_path, method: :delete
-            - else
-              li
-                = link_to 'Войти', new_user_session_path
-              li
-                = link_to 'Зарегистрироваться', new_user_registration_path
+head
+  title Sevdol
+  = stylesheet_link_tag    'application', media: 'all'
+  = csrf_meta_tags
+body
+  .container
+    /! Static navbar
+    nav.navbar.navbar-default
+      .navbar-header
+        button.navbar-toggle 'data-target' => '.navbar-collapse', 'data-toggle' => 'collapse', type: 'button'
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        = link_to "My Website", root_path, class: 'navbar-brand'
+      .navbar-collapse.collapse
+        ul.nav.navbar-nav.navbar-right
+          - if user_signed_in?
+            li
+              = link_to "Выйти, #{current_user.email}", destroy_user_session_path, method: :delete
+          - else
+            li
+              = link_to 'Войти', new_user_session_path
+            li
+              = link_to 'Зарегистрироваться', new_user_registration_path
         /! /.nav-collapse
-      div
-        - if flash[:notice]
-          .alert.alert-success= flash[:notice]
-        - if flash[:alert]
-          .alert.alert-danger= flash[:alert]
-        = yield
+    div
+      - if flash[:notice]
+        .alert.alert-success= flash[:notice]
+      - if flash[:alert]
+        .alert.alert-danger= flash[:alert]
+      = yield
 = javascript_include_tag 'application'
