@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+50.times do |n|
+  Company.create(name: "SomeCompany#{n}", country_code: n)
+end
+
+person_count = rand(2..10)
+
+person_count.times do |n|
+  x = rand(1..50)
+  Company.find(x).people.create(first_name: "SomeFirstName#{n}", last_name: "SomeLastName#{n}")
+end
