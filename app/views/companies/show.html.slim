@@ -5,8 +5,8 @@ hr
 h3 Country Code: "#{@company.country_code}"
 hr
 p Cписок сотрудников:
-- if @company.people
-  - @company.people.each do |person|
+- if @company_people
+  - @company_people.each do |person|
     i= "First name: #{person.first_name}, Last name: #{person.last_name}  "
     = link_to person, remote: true do
       - if @favorites.find_by(name: person.first_name)

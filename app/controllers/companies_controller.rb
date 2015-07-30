@@ -4,9 +4,18 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all
+
+    if current_user
+      @fav_array = []
+      @favorites.each do |fav|
+        @fav_array << fav.name
+      end
+    end
   end
 
   def show
+    @company_people = @company.people
+
     respond_to do |format|
       format.html {}
       format.js {}
