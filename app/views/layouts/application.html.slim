@@ -1,6 +1,6 @@
 doctype html
 head
-  title Sevdol
+  title CompanyApp
   = stylesheet_link_tag    'application', media: 'all'
   = csrf_meta_tags
 body
@@ -8,7 +8,7 @@ body
     /! Static navbar
     nav.navbar.navbar-default
       .navbar-header
-        button.navbar-toggle 'data-target' => '.navbar-collapse', 'data-toggle' => 'collapse', type: 'button'
+        button.navbar-toggle data-target='.navbar-collapse' data-toggle='collapse' type='button'
           span.sr-only Toggle navigation
           span.icon-bar
           span.icon-bar
