@@ -14,7 +14,7 @@ h1 Listing companies
           td = company.name
           td = Country.find_country_by_alpha2(company.country_code)
           td = link_to company, remote: true, id: "#{company.id}" do
-            - if @favorites.find_by(name: company.name)
+            - if @fav_array.include?(company.name)
               span.glyphicon.glyphicon-star id="icon#{company.id}"
             - else
               span.glyphicon.glyphicon-star-empty id="icon#{company.id}"
